@@ -1,0 +1,9 @@
+version: "3.9"
+   
+services:
+  app:
+    build: .
+    container_name: micro-videos-python-test-app
+    command: ./.docker/entrypoint.sh
+    volumes:
+      - .:/home/python/app
