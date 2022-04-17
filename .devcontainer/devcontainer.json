@@ -2,12 +2,13 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.217.4/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "Micro Videos Python",
+	"name": "Micro Videos Python Test",
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
 		"../docker-compose.yaml",
-		"docker-compose.yml"
+		"../docker-compose.override.yaml",
+		"docker-compose.yml",
 	],
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
@@ -17,15 +18,9 @@
 	"workspaceFolder": "/home/python/app",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.defaultProfile.linux": "bash",
+		"terminal.integrated.defaultProfile.linux": "zsh",
 		"cSpell.language": "en,pt,pt_BR",
 		"python.pythonPath": "/usr/local/bin/python",
-		"python.autoComplete.extraPaths": [
-			"${workspaceFolder}/__pypackages__/3.10/lib"
-		],
-		"python.analysis.extraPaths": [
-			"${workspaceFolder}/__pypackages__/3.10/lib"
-		],
 		// "python.testing.unittestArgs": [
 		// 	"-v",
 		// 	"-s",
@@ -34,21 +29,17 @@
 		// 	"-p",
 		// 	"*test*.py"
 		// ],
-		"python.testing.pytestEnabled": true,
-		"python.testing.unittestEnabled": false,
-		"python.testing.pytestArgs": [
-			"src"
-		],
-		"python.linting.pylintEnabled": true,
-		"python.linting.pylintArgs": [
-			"--disable=C0111"
-		],
-		"python.linting.enabled": true
+		// "python.testing.pytestEnabled": true,
+		// "python.testing.unittestEnabled": false,
+		// "python.testing.pytestArgs": [
+		// 	"-s",
+		// 	"${workspaceFolder}/src"
+		// ],
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python"
-	]
+	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
@@ -58,5 +49,5 @@
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
 	// "postCreateCommand": "apt-get update && apt-get install -y curl",
 	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
+	// "remoteUser": "vscode",
 }

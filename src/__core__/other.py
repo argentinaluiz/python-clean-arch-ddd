@@ -1,6 +1,7 @@
 import dataclasses
 from datetime import datetime
 from typing import List, Optional, Annotated, Union, Any
+from category.domain.entities import Category
 
 from pydantic import Field, constr, AnyHttpUrl, NoneStr
 from pydantic.dataclasses import dataclass
@@ -8,7 +9,6 @@ from pydantic import validate_arguments
 from pydantic.types import ConstrainedStr, StrictStr
 from pydantic.validators import str_validator
 from pydantic import Field, errors
-
 
 def empty_to_none(v: str) -> Optional[str]:
     if v == '':
@@ -30,7 +30,7 @@ class NotStrEmpty(str):
 
 
 @dataclass()
-class Category:
+class Category1:
     name: constr(min_length=1, max_length=10, strict=True)
     description: Optional[constr(strict=True)] = Field()
     is_active: Optional[bool] = Field()
@@ -50,5 +50,5 @@ class Category:
     # height: Optional[int] = Field(None, title='The height in cm', ge=50, le=300)
 
 
-user = Category(name='')
+user = Category1(name='')
 print(vars(user))

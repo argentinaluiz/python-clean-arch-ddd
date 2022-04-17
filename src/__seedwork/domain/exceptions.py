@@ -11,13 +11,16 @@ class SimpleValidationException(Exception):
 
 
 if TYPE_CHECKING:
-    from __seedwork.domain.validations import ValidationErrorFields
+    from __seedwork.domain.validators import ErrorFields
 
 
-@dataclass()
 class ValidationException(Exception):
-    error: 'ValidationErrorFields'
+    error: 'ErrorFields'
 
-    def __init__(self, error: 'ValidationErrorFields'):
+    def __init__(self, error: 'ErrorFields'):
         self.error = error
         super().__init__('Validation Error')
+
+
+class NotFoundException(Exception):
+    pass

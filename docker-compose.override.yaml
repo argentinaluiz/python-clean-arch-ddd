@@ -1,0 +1,9 @@
+version: "3.9"
+   
+services:
+  app:
+    tty: true
+    init: true
+    volumes:
+      - ./.docker/zsh:/home/python/zsh:delegated
+      - ./.docker/powerlevel10k/.p10k.zsh:/home/python/.p10k.zsh:delegated
