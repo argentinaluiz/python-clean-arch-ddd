@@ -65,7 +65,7 @@ name = "core"
 version = "0.0.1"
 requires_python = ">=3.10"
 editable = true
-path = "./src/__core"
+path = "/home/python/app/src/__core"
 summary = "UNKNOWN"
 dependencies = [
     "Ipython>=8.1.0",
@@ -125,18 +125,6 @@ dependencies = [
     "asgiref<4,>=3.4.1",
     "sqlparse>=0.2.2",
     "tzdata; sys_platform == \"win32\"",
-]
-
-[[package]]
-name = "djangoapp"
-version = "0.0.1"
-requires_python = ">=3.10"
-editable = true
-path = "./src/django_app"
-summary = "UNKNOWN"
-dependencies = [
-    "dependency-injector>=4.39.1",
-    "django>=4.0.4",
 ]
 
 [[package]]
@@ -447,7 +435,7 @@ summary = "Module for decorators, wrappers and monkey patching."
 
 [metadata]
 lock_version = "3.1"
-content_hash = "sha256:3a9a80d7171a0d9833e261cfe211356bb90c813bd6563fe419ce22e0ca6de1b6"
+content_hash = "sha256:5accd71f0f485351b06f2da0e96f01f4984e7af1958b79c0cfe2e4e16c47e2e9"
 
 [metadata.files]
 "appnope 0.1.3" = [

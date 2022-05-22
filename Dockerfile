@@ -1,13 +1,16 @@
 FROM python:3.10.2-slim
 
-RUN apt update && apt install -y --no-install-recommends gcc default-jre git wget curl zsh fonts-powerline
+RUN apt update && apt install -y --no-install-recommends gcc default-jre git wget curl zsh fonts-powerline make
 
 RUN useradd -ms /bin/bash python
 
-ENV MY_PYTHON_PACKAGES=/home/python/app/__pypackages__/3.10
-ENV PATH $PATH:${MY_PYTHON_PACKAGES}/bin
+ENV ROOT_PACKAGES=/home/python/app/__pypackages__/3.10
+#ENV CORE_PACKAGES=/home/python/app/src/__core/__pypackages__/3.10
+#ENV DJANGO_PACKAGES=/home/python/app/src/django_app/__pypackages__/3.10
+#ENV PATH $PATH:${ROOT_PACKAGES}/bin:${CORE_PACKAGES}/bin:${DJANGO_PACKAGES}/bin
+ENV PATH $PATH:${ROOT_PACKAGES}/bin
 
-ENV PYTHONPATH=${PYTHONPATH}/home/python/app/src
+ENV PYTHONPATH=${PYTHONPATH}/home/python/app/src/__core:/home/python/app/src/django_app
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONFAULTHANDLER=1

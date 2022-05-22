@@ -7,3 +7,5 @@ services:
     command: ./.docker/entrypoint.sh
     volumes:
       - .:/home/python/app
+    ports:
+      - 8000:8000

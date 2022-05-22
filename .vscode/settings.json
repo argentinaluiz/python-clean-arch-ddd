@@ -1,15 +1,22 @@
 {
     "peacock.remoteColor": "#25415d",
     "python.autoComplete.extraPaths": [
-        "${workspaceFolder}/__pypackages__/3.10/lib"
+        "${workspaceFolder}/__pypackages__/3.10/lib",
+        "${workspaceFolder}/__pypackages__/3.10/lib",
     ],
     "python.analysis.extraPaths": [
-        "${workspaceFolder}/__pypackages__/3.10/lib"
+        "${workspaceFolder}/__pypackages__/3.10/lib",
+        "${workspaceFolder}/__pypackages__/3.10/lib",
     ],
     "python.testing.pytestArgs": [
         "src",
+        "--noconftest",
         "--ignore",
         "__pypackages__",
+        "--ignore",
+        "./src/django_app/__pypackages__",
+        "--ignore",
+        "./src/__core/__pypackages__",
         "-s"
     ],
     "python.linting.pylintEnabled": true,
@@ -17,6 +24,10 @@
         "--disable=C0111"
     ],
     "python.linting.enabled": true,
+    "python.linting.ignorePatterns": [
+        "**/__pypackages__/**/*.py",
+        ".vscode/*.py"
+    ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "workbench.colorCustomizations": {

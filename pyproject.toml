@@ -3,30 +3,23 @@ name = ""
 version = ""
 description = ""
 authors = [
-    {name = "", email = ""},
+    {name = "Luiz Carlos", email = "argentinaluiz@gmail.com"},
 ]
 dependencies = [
-    "autopep8>=1.6.0",
-    "pylint>=2.12.2",
-    "flake8>=4.0.1",
-    "pydantic>=1.9.0",
-    "pytest>=7.0.1",
-    "Ipython>=8.1.0",
-    "testpath>=0.6.0",
-    "djangorestframework>=3.13.1",
+    "pytest>=7.1.2",
+    "-e file:///${PROJECT_ROOT}/src/django_app#egg=django_app",
+    "-e file:///${PROJECT_ROOT}/src/__core#egg=core",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
 
-[project.urls]
-homepage = ""
-
-[tool]
 [tool.pdm]
 
 [tool.pdm.scripts]
-test = "python -m unittest"
+#runserver = "cd src/django_app"
+runserver = "python ./src/django_app/manage.py runserver 0.0.0.0:8000"
+#runserver = "sh -c 'cd src/django_app && pdm run runserver'"
 
 [build-system]
-requires = ["pdm-pep517"]
+requires = ["pdm-pep517>=0.12.0"]
 build-backend = "pdm.pep517.api"
